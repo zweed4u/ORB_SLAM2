@@ -1,3 +1,13 @@
+echo "Installing dependencies ..."
+sudo apt-get install libopencv-dev python-opencv libboost-all-dev libsuitesparse-dev libblas-dev liblapack-dev libeigen3-dev libglew-dev
+git clone https://github.com/stevenlovegrove/Pangolin.git
+cd Pangolin
+mkdir build
+cd build
+cmake ..
+cmake --build .
+cd ../
+
 echo "Configuring and building Thirdparty/DBoW2 ..."
 
 cd Thirdparty/DBoW2
