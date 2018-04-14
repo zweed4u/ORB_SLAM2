@@ -132,7 +132,7 @@ imgpoints = [] # 2d points in image plane.
 
 cap = cv2.VideoCapture('/home/zweeden/Desktop/ORB_SLAM2/Python/acircle_portrait.MOV')
 found = 0
-while(found < 20):  # Here, 10 can be changed to whatever number you like to choose
+while(found < 10):  # Here, 10 can be changed to whatever number you like to choose
     ret, img = cap.read() # Capture frame-by-frame
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
@@ -168,7 +168,7 @@ ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.sh
 
 # It's very important to transform the matrix to list.
 data = {'camera_matrix': np.asarray(mtx).tolist(), 'dist_coeff': np.asarray(dist).tolist()}
-
+print data
 with open("calibration.yaml", "w") as f:
     yaml.dump(data, f)
 
