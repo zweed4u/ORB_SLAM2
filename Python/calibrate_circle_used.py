@@ -101,11 +101,31 @@ ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.sh
 print "finished calibrations"
 print "The camera matrix in px is: "
 print mtx
+fx = list(mtx)[0][0]
+cx = list(mtx)[0][2]
+fy = list(mtx)[1][1]
+cy = list(mtx)[1][2]
+print '\nfx: {}'.format(fx)
+print 'cx: {}'.format(cx)
+print 'fy: {}'.format(fy)
+print 'cy: {}'.format(cy)
+
+
 # print "The camera matrix in mm is: "
 # mtxmm = mtx * pxmm
 # print mtxmm
-print "The disortion coefficients are: "
+print "\nThe disortion coefficients are: "
 print dist
+k1 = list(dist)[0][0]
+k2 = list(dist)[0][1]
+p1 = list(dist)[0][2]
+p2 = list(dist)[0][3]
+k3 = list(dist)[0][4]
+print '\nk1: {}'.format(k1)
+print 'k2: {}'.format(k2)
+print 'p1: {}'.format(p1)
+print 'p2: {}'.format(p2)
+print 'k3: {}'.format(k3)
 # print "The rotation vector is: "
 # print rvecs
 # print "The translation vector is: "
